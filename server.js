@@ -10,6 +10,10 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(initial_path, 'uploads/home.html'));
 });
 
+app.get('/editor', (req, res) => {
+    res.sendFile(path.join(initial_path, 'uploads/editor.html'));
+});
+
 app.listen(3000, () => {
     console.log('Server is running at port 3000');
 });
