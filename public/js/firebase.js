@@ -10,4 +10,4 @@ let firebaseConfig = {
   // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-db = firebase.firestore();
+let db = firebase.firestore();

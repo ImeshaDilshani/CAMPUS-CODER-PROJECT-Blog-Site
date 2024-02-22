@@ -46,3 +46,35 @@ const addImage = (imagepath, alt) => {
     articleFeild.value = articleFeild.value.slice(0, curPos) + textToInsert + articleFeild.value.slice(curPos);
     
 }
+
+let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+publishBtn.addEventListener('click', () => {
+    if(articleFeild.value.length && blogTitleField.value.length){
+        //generating id
+        let letters = 'abcdefghijklmnopqrstuvwxyz';
+        let blogTitle = blogTitleField.value.split(' ').join('-').toLowerCase();
+        let id = '';
+        for(let i = 0; i < 5; i++){
+            id += letters[Math.floor(Math.random() * letters.length)];
+        }
+
+        //setting up docName
+        let docName = `${blogTitle}-${id}`;
+        let date = new Date();//for publish at info
+
+        //accessing the db
+        db.collection("blogs").doc(docName).set({
+            title: blogTitleField.value,
+            article: articleFeild.value,
+            bannerImage: bannerPath,
+            publishedAt: `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`
+        })
+        .then(() => {
+            location.href = `/${docName}`;
+        })
+        .catch((err) => {
+            console.error(err);
+        })
+    }
+});
