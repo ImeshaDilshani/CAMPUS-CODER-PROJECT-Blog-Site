@@ -9,11 +9,11 @@ app.use(express.static(initial_path));
 app.use(fileupload());
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(initial_path, 'uploads/home.html'));
+    res.sendFile(path.join(initial_path, 'home.html'));
 });
 
 app.get('/editor', (req, res) => {
-    res.sendFile(path.join(initial_path, 'uploads/editor.html'));
+    res.sendFile(path.join(initial_path, 'editor.html'));
 });
 
 // upload link
@@ -36,6 +36,10 @@ app.post('/upload', (req, res) => {
     })
 })
 
-app.listen(3000, () => {
-    console.log('Server is running at port 3000');
+// app.listen(3000, () => {
+//     console.log('Server is running at port 3000');
+// });
+const PORT = 4000; // Change this to any available port number
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
