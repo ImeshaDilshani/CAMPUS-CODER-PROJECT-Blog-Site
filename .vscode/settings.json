@@ -1,6 +1,11 @@
 {
     "cSpell.words": [
+        "APIKEY",
+        "AUTHDOMAIN",
         "formdata",
-        "imagepath"
+        "imagepath",
+        "MESSAGINGSENDERID",
+        "PROJECTID",
+        "STORAGEBUCKET"
     ]
 }
